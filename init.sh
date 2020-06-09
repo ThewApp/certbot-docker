@@ -7,7 +7,7 @@ else
   EMAIL_ARG="-m ${EMAIL}"
 fi
 
-certbot --standalone -n \
+certbot certonly --standalone -n \
   --rsa-key-size $RSAKeySize \
   --agree-tos $EMAIL_ARG \
   -d $Domain
