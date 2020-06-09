@@ -10,7 +10,6 @@ fi
 certbot --standalone -n \
   --webroot -w $WebRoot \
   --rsa-key-size $RSAKeySize \
-  --http-01-address $HTTP01Address \
   --agree-tos $EMAIL_ARG \
   -d $Domain
 
