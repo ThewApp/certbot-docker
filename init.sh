@@ -1,6 +1,6 @@
 #!bin/bash
 
-if [[ -z "${EMAIL}" ]]
+if [[ -z "${Email}" ]]
 then
   EMAIL_ARG="--register-unsafely-without-email"
 else
@@ -11,6 +11,6 @@ certbot certonly -n \
   --webroot -w $WebRoot \
   --rsa-key-size $RSAKeySize \
   --agree-tos $EMAIL_ARG \
-  -d $DOMAIN
+  -d $Domain
 
 cron -f
