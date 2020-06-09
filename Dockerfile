@@ -10,8 +10,10 @@ ENV RSAKeySize=4096
 
 VOLUME /etc/letsencrypt
 
-ADD init.sh ./
+COPY entrypoint.sh .
 
-RUN ["chmod", "+x", "init.sh"]
+RUN ["chmod", "+x", "entrypoint.sh"]
 
-CMD ./init.sh
+ENTRYPOINT ["entrypoint.sh"]
+
+CMD ["certbot"]
