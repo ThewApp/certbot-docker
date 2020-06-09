@@ -2,9 +2,9 @@
 
 if [[ -z "${EMAIL}" ]]
 then
-  EMAIL_ARG="-m ${EMAIL}"
-else
   EMAIL_ARG="--register-unsafely-without-email"
+else
+  EMAIL_ARG="-m ${EMAIL}"
 fi
 
 certbot certonly -n \
