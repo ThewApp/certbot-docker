@@ -6,7 +6,7 @@
 
 ## Environment Variables
 
-`Domain` - Comma-separated list of domains to obtain a certificate for
+`Domain` - Comma-separated list of domains to obtain a certificate for. Multiple certificates are seperated by `/` ex. `example.com,example1.com/example2.com`
 
 `Email` - Email used for registration and recovery contact. _(optional)_
 
