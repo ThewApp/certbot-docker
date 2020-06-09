@@ -8,7 +8,7 @@ EXPOSE 80
 
 ENV RSAKeySize=4096
 
-VOLUME /etc/letsencrypt/live
+VOLUME /etc/letsencrypt
 
 ADD init.sh ./
 
