@@ -8,7 +8,6 @@ else
 fi
 
 certbot --standalone -n \
-  --webroot -w $WebRoot \
   --rsa-key-size $RSAKeySize \
   --agree-tos $EMAIL_ARG \
   -d $Domain
