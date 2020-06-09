@@ -2,7 +2,7 @@
 
 ## Volumes
 
-- /etc/letsencrypt/live
+- `/etc/letsencrypt/live`
 
 ## Environment Variables
 
