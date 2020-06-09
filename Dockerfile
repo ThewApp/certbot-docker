@@ -6,9 +6,9 @@ RUN apt-get update && apt-get install -y \
 
 EXPOSE 80
 
-ENV RSAKeySize=4096 WebRoot=/var/www/letsencrypt
+ENV RSAKeySize=4096
 
-VOLUME /etc/letsencrypt/live /var/www/letsencrypt
+VOLUME /etc/letsencrypt/live
 
 ADD init.sh ./
 
