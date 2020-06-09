@@ -10,7 +10,7 @@ docker.pkg.github.com/thewapp/certbot-docker/certbot-docker
 
 ## Volumes
 
-- `/etc/letsencrypt/live`
+- `/etc/letsencrypt`
 
 ## Environment Variables
 
