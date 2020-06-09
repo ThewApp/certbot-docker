@@ -20,7 +20,7 @@
 
 ```
     upstream letsencrypt {
-        server certbot;
+        server certbot-docker;
     }
 
     server {
