@@ -12,7 +12,7 @@ then
   STAGING_ARG="--staging"
 fi
 
-$DOMAIN_ARG="-d ${Domain//// -d }"
+DOMAIN_ARG="-d ${Domain//// -d }"
 
 certbot certonly --standalone -n \
   --rsa-key-size $RSAKeySize \
