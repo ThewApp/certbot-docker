@@ -13,7 +13,7 @@ then
 fi
 
 IFS="/"
-for $DOMAIN_ARG in $Domain
+for DOMAIN_ARG in $Domain
 do
   certbot certonly --standalone -n \
     --rsa-key-size $RSAKeySize \
