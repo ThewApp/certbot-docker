@@ -12,10 +12,12 @@ then
   STAGING_ARG="--staging"
 fi
 
+$DOMAIN_ARG="-d ${Domain//// -d }"
+
 certbot certonly --standalone -n \
   --rsa-key-size $RSAKeySize \
   --agree-tos $EMAIL_ARG \
   $STAGING_ARG \
-  -d $Domain
+  $DOMAIN_ARG
 
 cron -f
