@@ -7,7 +7,7 @@ else
   EMAIL_ARG="-m ${EMAIL}"
 fi
 
-certbot certonly -n \
+certbot --standalone -n \
   --webroot -w $WebRoot \
   --rsa-key-size $RSAKeySize \
   --http-01-address $HTTP01Address \
