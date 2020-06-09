@@ -10,7 +10,7 @@ fi
 certbot certonly -n \
   --webroot -w $WebRoot \
   --rsa-key-size $RSAKeySize \
-  --agree-tos EMAIL_ARG \
+  --agree-tos $EMAIL_ARG \
   -d $DOMAIN
 
 cron -f
