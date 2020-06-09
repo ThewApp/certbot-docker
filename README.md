@@ -1,5 +1,9 @@
 # certbot-docker
 
+## Volumes
+
+- /etc/letsencrypt/live
+
 ## Environment Variables
 
 `DOMAIN` - Comma-separated list of domains to obtain a certificate for
