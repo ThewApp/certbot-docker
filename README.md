@@ -3,7 +3,9 @@
 ## Usage
 
 ```
-docker run -d -e Domain=example.com,example1.com/example2.com -e Staging=True -p 80:80 -v certs:/etc/letsencrypt/live --name certbot-docker docker.pkg.github.com/thewapp/certbot-docker/certbot-docker
+docker run -d -e Domain=example.com,example1.com/example2.com -e Staging=True \
+-p 80:80  -v certs:/etc/letsencrypt/live --name certbot-docker \
+docker.pkg.github.com/thewapp/certbot-docker/certbot-docker
 ```
 
 ## Volumes
