@@ -10,8 +10,8 @@ ENV RSAKeySize=4096
 
 VOLUME /etc/letsencrypt
 
-COPY init.sh .
+COPY ./init.sh .
 
-RUN ["chmod", "+x", "init.sh"]
+RUN ["chmod", "+x", "./init.sh"]
 
-CMD init.sh
+CMD ./init.sh
