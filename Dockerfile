@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y \
 
 EXPOSE 80
 
-ENV RSAKeySize=4096
+ENV RSAKeySize=4096 Delay=60
 
 VOLUME /etc/letsencrypt
 
