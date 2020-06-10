@@ -24,4 +24,7 @@ do
     -d $DOMAIN_ARG
 done
 
+chmod 0755 /etc/letsencrypt/{live,archive}
+chmod 0644 /etc/letsencrypt/archive/*/*
+
 cron -f
