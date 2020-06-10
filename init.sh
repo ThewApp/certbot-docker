@@ -14,6 +14,8 @@ then
   STAGING_ARG="--staging"
 fi
 
+sleep $Delay
+
 IFS="/"
 for DOMAIN_ARG in $Domain
 do
