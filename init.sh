@@ -1,5 +1,7 @@
 #!bin/bash
 
+set -e
+
 if [[ -z "${Email}" ]]
 then
   EMAIL_ARG="--register-unsafely-without-email"
