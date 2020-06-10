@@ -22,6 +22,8 @@ docker.pkg.github.com/thewapp/certbot-docker/certbot-docker
 
 `RSAKeySize` - Size of the RSA key. _(default: 4096)_ 
 
+`Delay` - Duration to wait before start issuing in seconds. _(default: 60)_ 
+
 `Staging` - Use the staging server to obtain (invalid) certificates _(default: False)_
 
 ## Nginx
