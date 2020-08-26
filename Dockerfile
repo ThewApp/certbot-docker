@@ -1,8 +1,7 @@
-FROM node
+FROM node:alpine
 
-RUN apt-get update && apt-get install -y \
-    certbot \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk update && apk add --no-cache \
+    certbot
 
 EXPOSE 80
 
