@@ -4,7 +4,7 @@ const fs = require("fs");
 const config = JSON.parse(process.env.config);
 
 const email = config.email;
-const email_arg = email ? "--register-unsafely-without-email" : `-m ${email}`;
+const email_arg = email ? `-m ${email}` : "--register-unsafely-without-email";
 const staging_arg = config.staging ? "--staging" : "";
 
 const RSAKeySize = config.rsakeysize || 4096;
