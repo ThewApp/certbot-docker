@@ -26,7 +26,10 @@ Example configuration and default value.
     ],
     "email": "", // Email address for important account notifications, optional
     "staging": false, // Obtain a test certificate from a staging server, optional,
-    "rsakeysize": 4096 // Size of the RSA key, optional
+    "rsakeysize": 4096, // Size of the RSA key, optional
+    "dryrun": false, // optional
+    "expand": false, // optional
+    "allowsubsetofnames": false // optional
 }
 ```
 
