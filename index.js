@@ -26,6 +26,10 @@ exec(
   (error, stdout, stderr) => {
     callback(error, stdout, stderr);
 
+    if (stderr) {
+      return;
+    }
+
     exec("certbot renew", callback);
   }
 );
