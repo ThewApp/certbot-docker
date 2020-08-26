@@ -1,7 +1,9 @@
 const { exec } = require("child_process");
 const fs = require("fs");
 
-const config = JSON.parse(process.env.config);
+const config = JSON.parse(
+  process.env.config || fs.readFileSync("certbot.json", { encoding: "utf-8" })
+);
 
 const email = config.email;
 const email_arg = email ? `-m ${email}` : "--register-unsafely-without-email";
@@ -16,9 +18,9 @@ const domain_args = config.domains
 exec(
   `certbot certonly --standalone -n --rsa-key-size ${RSAKeySize} --agree-tos ${email_arg} ${staging_arg} ${domain_args}`,
   (error, stdout, stderr) => {
-      console.error(error)
-      console.log(stdout)
-      console.warn(stderr)
+    console.error(error);
+    console.log(stdout);
+    console.warn(stderr);
   }
 );
 
