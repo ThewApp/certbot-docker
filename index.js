@@ -1,8 +1,6 @@
-const { exec } = require("child_process");
 const { promisify } = require("util");
 const fs = require("fs");
-
-const exec = promisify(exec);
+const exec = promisify(require("child_process").exec);
 
 const config = JSON.parse(
   process.env.config || fs.readFileSync("certbot.json", { encoding: "utf-8" })
