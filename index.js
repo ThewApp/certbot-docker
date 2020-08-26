@@ -15,15 +15,21 @@ const domain_args = config.domains
   .map((domain) => "-d " + domain.join(","))
   .join(" ");
 
+function callback(error, stdout, stderr) {
+  console.error(error);
+  console.log(stdout);
+  console.warn(stderr);
+}
+
 exec(
   `certbot certonly --standalone -n --rsa-key-size ${RSAKeySize} --agree-tos ${email_arg} ${staging_arg} ${domain_args}`,
   (error, stdout, stderr) => {
-    console.error(error);
-    console.log(stdout);
-    console.warn(stderr);
+    callback(error, stdout, stderr);
+
+    exec("certbot renew", callback);
   }
 );
 
 setInterval(() => {
-  exec("certbot renew");
+  exec("certbot renew", callback);
 }, 24 * 60 * 60 * 1000);
