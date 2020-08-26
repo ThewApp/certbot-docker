@@ -11,29 +11,33 @@ const staging_arg = config.staging ? "--staging" : "";
 
 const RSAKeySize = config.rsakeysize || 4096;
 
-const domain_args = config.domains
-  .map((domain) => "-d " + domain.join(","))
-  .join(" ");
+const certificate_domains = config.domains.map((domain) => domain.join(","));
 
 function callback(error, stdout, stderr) {
   console.error(error);
   console.log(stdout);
   console.warn(stderr);
+
+  if (stderr) {
+    return;
+  }
 }
 
-exec(
-  `certbot certonly --standalone -n --rsa-key-size ${RSAKeySize} --agree-tos ${email_arg} ${staging_arg} ${domain_args}`,
-  (error, stdout, stderr) => {
-    callback(error, stdout, stderr);
+function renew() {
+  exec("certbot renew", callback);
+}
 
-    if (stderr) {
-      return;
+certificate_domains.map((certificate_domain) => {
+  exec(
+    `certbot certonly --standalone -n --rsa-key-size ${RSAKeySize} --agree-tos ${email_arg} ${staging_arg} -d ${certificate_domain}`,
+    (error, stdout, stderr) => {
+      callback(error, stdout, stderr);
+
+      renew();
     }
-
-    exec("certbot renew", callback);
-  }
-);
+  );
+});
 
 setInterval(() => {
-  exec("certbot renew", callback);
+  renew();
 }, 24 * 60 * 60 * 1000);
