@@ -18,7 +18,7 @@ Configuration can be pass as `config` environment variable or mount as a `/confi
 
 Example configuration and default value.
 
-```json
+```js
 {
     "domains": [ // Array of certificates, required
         ["example.com", "example2.com"], // first certificate contains 2 domains
