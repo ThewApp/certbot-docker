@@ -1,4 +1,4 @@
-const { exec } = require("child_process");
+const { exec, execSync } = require("child_process");
 const fs = require("fs");
 
 const config = JSON.parse(
@@ -28,16 +28,14 @@ function renew() {
 }
 
 certificate_domains.map((certificate_domain) => {
-  exec(
+  execSync(
     `certbot certonly --standalone -n --rsa-key-size ${RSAKeySize} --agree-tos ${email_arg} ${staging_arg} -d ${certificate_domain}`,
-    (error, stdout, stderr) => {
-      callback(error, stdout, stderr);
-
-      renew();
-    }
+    callback(error, stdout, stderr)
   );
 });
 
+renew();
+
 setInterval(() => {
   renew();
-}, 24 * 60 * 60 * 1000);
+}, 12 * 60 * 60 * 1000);
