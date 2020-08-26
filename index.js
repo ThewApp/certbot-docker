@@ -15,27 +15,30 @@ const RSAKeySize = config.rsakeysize || 4096;
 const certificate_domains = config.domains.map((domain) => domain.join(","));
 
 function renew() {
-  exec("certbot renew").then((stdout, stderr) => {
+  exec("certbot renew").then(({ stdout, stderr }) => {
     console.log(stdout);
     console.warn(stderr);
   });
 }
 
 async function generate_cert() {
+  // Process requested certificates
   for (certificate_domain of certificate_domains) {
     await exec(
       `certbot certonly --standalone -n --rsa-key-size ${RSAKeySize} --agree-tos ${email_arg} ${staging_arg} -d ${certificate_domain}`
-    ).then((stdout, stderr) => {
+    ).then(({ stdout, stderr }) => {
       console.log(stdout);
       console.warn(stderr);
     });
   }
+
+  // Renew existing certificate
+  renew();
 }
 
 generate_cert();
 
-renew();
-
+// Renew existing certificate every 12 hours
 setInterval(() => {
   renew();
 }, 12 * 60 * 60 * 1000);
